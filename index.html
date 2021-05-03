@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<htmls lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Aslı countdown</title>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <style>
+            body {
+                background: #f6f6f6;
+            }
+
+            .countdownContainer {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translateX(-50%) translateY(-50%);
+                text-align: center;
+                background: #ddd;
+                border: 1px solid #999;
+                padding: 10px;
+                box-shadow: 0 0 5px 3px #ccc;
+            }
+
+            .info {
+                font-size: 80px;
+                text-align: center;
+            }
+
+            .info2 {
+                font-size: 25px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <table class="container countdownContainer">
+            <tr class="info">
+                <td colspan="4" class="center">
+                    ASLI İLE BULUŞMAYA
+                </td>
+            </tr>
+            <tr class="info">
+                <td id="days"></td>
+                <td id="hours">4</td>
+                <td id="minutes">12</td>
+                <td id="seconds">22</td>
+            </tr>
+            <tr class="info2">
+                <td>Gün</td>
+                <td>Saat</td>
+                <td>Dakika</td>
+                <td>Saniye</td>
+            </tr>
+
+        </table>
+
+
+    </body>
+    <script>
+        function countdown() {
+
+
+
+            var now = new Date()
+            var targetDate = new Date(2021, 6, 5);
+            var difference_In_Time = targetDate.getTime() - now.getTime();
+
+            var s = Math.floor(difference_In_Time / 1000);
+            var m = Math.floor(s / 60);
+            var h = Math.floor(m / 60);
+            var d = Math.floor(h / 24);
+
+            h %= 24;
+            m %= 60;
+            s %= 60;
+
+            h = (h < 10) ? "0" + h : h;
+            m = (m < 10) ? "0" + m : m;
+            s = (s < 10) ? "0" + s : s;
+
+            document.getElementById("days").textContent = d;
+            document.getElementById("hours").innerText = h;
+            document.getElementById("minutes").textContent = m;
+            document.getElementById("seconds").textContent = s;
+
+            setTimeout(countdown, 1000);
+        }
+
+        countdown();
+
+    </script>
+
+</htmls
